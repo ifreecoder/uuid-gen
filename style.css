@@ -1,0 +1,20 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    flex-shrink: 0;
+    /* 防止页脚随内容拉伸 */
+}
+
+#generate-btn {
+    background-color: #e95420;
+    color: #ffffff;
+    border-color: #e95420;
+}
