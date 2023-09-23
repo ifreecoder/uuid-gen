@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UUID Generator</title>
+    <meta name="description" content="Basic UUID Online Generator">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Uuid Generator Online">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Uuid Generator Online">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">UUID Generator</a>
+            <h1 class="navbar-brand" >UUID Generator</h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,8 +42,9 @@
         <h1 class="text-center mb-4">UUID Generator</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <input type="text" id="uuid" class="form-control mb-3" readonly>
+                <input type="text" id="uuid" class="form-control mb-3" onclick="copyUuid()" ondblclick="copyUuid()">
                 <button id="generate-btn" class="btn btn-primary btn-block">Generate UUID</button>
+                <div id="copyMessage">Copied to clipboard</div>
             </div>
         </div>
     </div>
@@ -66,6 +76,34 @@
             const uuid = generateUUID();
             uuidInput.value = uuid;
         });
+    </script>
+
+
+    <script type="text/javascript">
+        function copyUuid() {
+            var inputElement = document.getElementById("uuid");
+
+            inputElement.select();
+
+            document.execCommand("copy");
+
+            window.getSelection().removeAllRanges();
+
+            if(inputElement.value){
+                var copyMessage = document.getElementById("copyMessage");
+                copyMessage.style.display = "block";
+
+                setTimeout(function() {
+                    copyMessage.style.display = "none";
+                }, 2000);
+            }
+            
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        
     </script>
 </body>
 </html>
